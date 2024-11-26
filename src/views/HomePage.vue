@@ -143,6 +143,9 @@ th, td {
   margin-top: 40px;
   padding: 25px;
 }
+.card-header{
+  font-weight: bold;
+}
 .lab-list{
   display: flex;
   justify-content: center;

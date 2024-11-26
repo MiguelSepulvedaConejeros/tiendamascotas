@@ -1,11 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '@/views/HomePage.vue';
 import LoginPage from '@/views/LoginPage.vue';
+import RegistroUsuario from '@/views/RegistroUsuario.vue'
+import ConfirmacionUsuario from '@/components/ConfirmacionUsuario.vue';
+
 
 const routes = [
   {
     path: '/',
-    redirect: '/login' // Redirige a la página de inicio de sesión
+    redirect: '/login'
   },
   {
     path: '/login',
@@ -16,7 +19,18 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: HomePage
-  }
+  },
+  {
+    path: '/registrousuario',
+    name: 'RegistroUsuario',
+    component: RegistroUsuario
+  },
+  {
+    path: '/confirmacionUsuario',
+    name: 'ConfirmacionUsuario',
+    component: ConfirmacionUsuario
+  },
+
 ]
 
 const router = createRouter({

@@ -3,25 +3,12 @@
     <img class="imageLogo" :src="imageLogo" alt="logo">
     <h1 class="titulo">EduPets</h1>
     <div class="container">
-      <!-- Pills navs -->
-      <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-        <li class="nav-item" role="presentation">
-          <a class="nav-link me-3" id="tab-login" data-mdb-pill-init href="#pills-login" role="tab"
-            aria-controls="pills-login" aria-selected="true" @click="cambiarLogin">Login</a>
-        </li>
-        <li class="nav-item" role="tab">
-          <a class="nav-link" id="tab-register" data-mdb-pill-init href="#pills-register" role="tab"
-            aria-controls="pills-register" aria-selected="false" @click="cambiaregistro">Register</a>
-        </li>
-      </ul>
-  <!-- Pills navs -->
-
   <!-- Pills content -->
     <div class="tab-content">
       <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
         <form @submit.prevent="loginUser">
           <div class="text-center mb-3 mt-2">
-            <p>Conectate</p>
+            <p class="conectate">Conectate</p>
             <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
               <i class="fab fa-facebook-f"></i>
             </button>
@@ -71,72 +58,9 @@
 
           <!-- Submit button -->
           <button id="btn-sign" type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Iniciar sesion</button>
-        </form>
-      </div>
-      <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-        <form>
-          <div class="text-center mb-3">
-            <p>Conectate</p>
-            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-              <i class="fab fa-facebook-f"></i>
-            </button>
-
-            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-              <i class="fab fa-google"></i>
-            </button>
-
-            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-              <i class="fab fa-twitter"></i>
-            </button>
-
-            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-              <i class="fab fa-github"></i>
-            </button>
+          <div class="text-center">
+            <p>No eres miembro? <a class="Register-btn" href="#!" @click="botonRegistro">Registrate</a></p>
           </div>
-
-          <p class="text-center">o:</p>
-
-          <!-- Name input -->
-          <div data-mdb-input-init class="form-outline mb-4">
-            <input type="text" id="registerName" class="form-control" />
-            <label class="form-label" for="registerName">Nombre</label>
-          </div>
-
-          <!-- Username input -->
-          <div data-mdb-input-init class="form-outline mb-4">
-            <input type="text" id="registerUsername" class="form-control" />
-            <label class="form-label" for="registerUsername">Usuario</label>
-          </div>
-
-          <!-- Email input -->
-          <div data-mdb-input-init class="form-outline mb-4">
-            <input type="email" id="registerEmail" class="form-control" />
-            <label class="form-label" for="registerEmail">Email</label>
-          </div>
-
-          <!-- Password input -->
-          <div data-mdb-input-init class="form-outline mb-4">
-            <input type="password" id="registerPassword" class="form-control" />
-            <label class="form-label" for="registerPassword">Contraseña</label>
-          </div>
-
-          <!-- Repeat Password input -->
-          <div data-mdb-input-init class="form-outline mb-4">
-            <input type="password" id="registerRepeatPassword" class="form-control" />
-            <label class="form-label" for="registerRepeatPassword">Repite Contraseña</label>
-          </div>
-
-          <!-- Checkbox -->
-          <div class="form-check d-flex justify-content-center mb-4">
-            <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck"
-              aria-describedby="registerCheckHelpText" />
-            <label class="form-check-label" for="registerCheck">
-              Acepta terminos y condiciones
-            </label>
-          </div>
-
-          <!-- Submit button -->
-          <button id="btn-sign-register" type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-3">Registrate</button>
         </form>
       </div>
     </div>
@@ -188,7 +112,10 @@
             console.log("error en la solicitud", error)
             })
           }
-        }
+        },
+      botonRegistro(){
+        this.$router.push('/registroUsuario')
+      }
       },
     }
 </script>
@@ -220,7 +147,6 @@
   width: 400px;
   display: flex;
   flex-direction: column;
-  border: 1px solid gray;
   border-radius:10px;
   Margin-top: 20px;
   padding: 30px;
@@ -228,17 +154,9 @@
 .btn-link{
   color: black;
 }
-.nav-item{
-  background-color:black;
-  border-radius: 10px;
-  margin-right: 5px;
-  margin-left: 5px;
-}
-.nav-link{
-  color: white;
-}
 .text-center{
   color: rgb(250, 239, 218);
+  font-size: 20px
 }
 .form-label{
   color: rgb(250, 239, 218)
@@ -250,9 +168,6 @@
   color: rgb(14, 67, 83);
   text-decoration:none;
 }
-#btn-sign-register{
-  background-color:black;
-}
 #btn-sign{
   background-color:black;
 }
@@ -260,8 +175,9 @@
   background-color:black;
   border: 2px solid gray;
 }
-#registerCheck:checked{
-  background-color:black;
-  border: 2px solid gray;
+.Register-btn{
+  color: rgb(14, 67, 83);
+  text-decoration:none;
+  margin-left: 10px;
 }
 </style>
